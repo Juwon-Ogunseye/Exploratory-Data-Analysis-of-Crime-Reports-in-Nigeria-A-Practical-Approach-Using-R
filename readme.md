@@ -142,6 +142,3 @@ This analysis and visualization provide valuable insights into the relationship 
 
 ---
 
-### **End of README**
-
-Let me know if you need further edits or additional sections in the README!
