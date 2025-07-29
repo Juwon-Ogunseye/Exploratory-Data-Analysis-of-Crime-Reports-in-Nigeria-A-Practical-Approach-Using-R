@@ -5,7 +5,7 @@ library(dplyr)
 library(tidyr)
 library(scales)
 library(viridis)
-file_path = "/home/juwon/Exploratory-Data-Analysis-of-Crime-Reports-in-Nigeria-A-Practical-Approach-Using-R/CRIME STATISTICS 2017.xlsx"
+file_path = "/home/juwon/Exploratory-Data-Analysis-of-Crime-Reports-in-Nigeria-A-Practical-Approach-Using-R/data/CRIME STATISTICS 2017.xlsx"
 crime_data <- read_excel(file_path, sheet = "Offences Against Lawful Auth.", skip = 1) 
 crime_data <- clean_names(crime_data)
 police_data <- read_excel(file_path, sheet = "Area Commands,divisions......", skip = 1)
@@ -24,7 +24,7 @@ plot_bar <- ggplot(crime_data, aes(x = state, y = total_offences)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Total Offences by State", x = "State", y = "Total Offences")
 print(plot_bar)
-ggsave("offences_plot.png", plot = plot_bar)
+ggsave("/home/juwon/Exploratory-Data-Analysis-of-Crime-Reports-in-Nigeria-A-Practical-Approach-Using-R/dashboard/offences_plot.png", plot = plot_bar)
 
 data_long <- crime_data %>%
   pivot_longer(cols = -state, names_to = "offence_type", values_to = "offence_count")
@@ -35,7 +35,7 @@ plot_heatmap <- ggplot(data_long, aes(x = offence_type, y = state, fill = offenc
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Heatmap of Offences by State and Offence Type", x = "Offence Type", y = "State")
 print(plot_heatmap)
-ggsave("offences_heatmap.png", plot = plot_heatmap, width = 10, height = 6, units = "in")
+ggsave("/home/juwon/Exploratory-Data-Analysis-of-Crime-Reports-in-Nigeria-A-Practical-Approach-Using-R/dashboard/offences_heatmap.png", plot = plot_heatmap, width = 10, height = 6, units = "in")
 
 plot_scatter <- ggplot(merged_data, aes(x = total_offences, y = police_stations)) +
   geom_point(aes(color = state), size = 3, alpha = 0.6) +
@@ -46,7 +46,7 @@ plot_scatter <- ggplot(merged_data, aes(x = total_offences, y = police_stations)
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 print(plot_scatter)
 
-ggsave("crime_vs_police_stations.png", plot = plot_scatter, width = 10, height = 6, units = "in")
+ggsave("/home/juwon/Exploratory-Data-Analysis-of-Crime-Reports-in-Nigeria-A-Practical-Approach-Using-R/dashboard/crime_vs_police_stations.png", plot = plot_scatter, width = 10, height = 6, units = "in")
 
 crime_data <- read_excel(file_path, sheet = "Summary", skip = 2, col_names = FALSE)
 crime_data <- data.frame(
@@ -104,7 +104,7 @@ ggplot(merged_data, aes(x = police_stations, y = total_crimes)) +
     panel.grid.minor = element_blank()
   )
 
-ggsave("police_vs_crimes_improved.png", width = 10, height = 8, dpi = 300, bg = "white")
+ggsave("/home/juwon/Exploratory-Data-Analysis-of-Crime-Reports-in-Nigeria-A-Practical-Approach-Using-R/dashboard/police_vs_crimes_improved.png", width = 10, height = 8, dpi = 300, bg = "white")
 
 cat("Analysis complete. Visualization saved as 'police_vs_crimes_improved.png'\n")
 cat("States with highest crime-to-station ratios:\n")
