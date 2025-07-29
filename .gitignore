@@ -1,0 +1,11 @@
+# System/IDE files
+.Rhistory
+Rplots.pdf
+
+# Generated output files
+*.png
+*.pdf
+
+# Environment specific files
+.RData
+.Ruserdata
