@@ -5,10 +5,8 @@ library(dplyr)
 library(tidyr)
 library(scales)
 library(viridis)
-
 file_path = "/home/juwon/Exploratory-Data-Analysis-of-Crime-Reports-in-Nigeria-A-Practical-Approach-Using-R/CRIME STATISTICS 2017.xlsx"
-
-crime_data <- read_excel(file_path, sheet = "Offences Against Lawful Auth.", skip = 1)
+crime_data <- read_excel(file_path, sheet = "Offences Against Lawful Auth.", skip = 1) 
 crime_data <- clean_names(crime_data)
 police_data <- read_excel(file_path, sheet = "Area Commands,divisions......", skip = 1)
 police_data <- clean_names(police_data)
