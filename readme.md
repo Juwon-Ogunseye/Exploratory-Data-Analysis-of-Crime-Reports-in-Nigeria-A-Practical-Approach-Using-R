@@ -39,11 +39,10 @@ The analysis compares **crime rates** (total crimes) against the **number of pol
 
 We create multiple visualizations to explore the data and identify key insights:
 ### Total Offences by State
-![Bar Plot of Total Offences](./offences_plot.png)
+![Bar Plot of Total Offences](dashboard/offences_plot.png)
 
 ### Police Resources vs Crime Volume
-![Scatter Plot](./police_vs_crimes_improved.png)
-
+![Scatter Plot of Police vs Crime](dashboard/police_vs_crimes_improved.png)
 1. **Bar Plot of Total Offences by State**:
 
    * A **bar plot** is used to show the total number of offences in each state.
